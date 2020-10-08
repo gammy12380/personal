@@ -1,0 +1,43 @@
+<script>
+
+    var dotList = document.querySelectorAll('#dotList li')
+
+    //功能一: 換屏的時候痘痘要跟著動
+    new fullpage("#fullpage",
+        {
+            licenseKey: "YOUR KEY HERE",
+            sectionsColor: ["#Fff", "#fff", "#fff", "#fff"],
+            navigation: true,
+            //fullPage提供的callback onLeave: 離開每一屏時觸發
+            onLeave: function (origin, destination, direction) {
+                //origin: 起點
+                //destination: 終點
+                //direction: 方向('up' 和 'down')
+
+                //做一個for迴圈, 對 dotList (那個痘痘的元素們) 做處理
+                for (var i = 0; i < dotList.length; i++) {
+                    //如果是 destination 對應的那個痘痘就加上 active, 其他則是刪掉active
+                    if (i === destination.index) {
+                        dotList[i].classList.add('active')
+                    } else {
+                        dotList[i].classList.remove('active')
+                    }
+                }
+            }
+        });
+
+
+    //功能二: 點擊痘痘的時候畫面要滑動到相對的屏
+    function moveToSlide(index) {
+        //fullpage提供的api, 讓我們能手動控制屏
+        fullpage_api.moveTo(index + 1);
+    }
+
+    ///做一個for迴圈,對痘痘元素們加上click事件處理(注意: 這裡一定要用 let , 用 var 的話會壞掉(閉包的關係))
+    for (let i = 0; i < dotList.length; i++) {
+        dotList[i].addEventListener('click', function () {
+            moveToSlide(i)
+        })
+    }
+
+</script>

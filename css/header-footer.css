@@ -60,12 +60,11 @@ header {
     align-items: center;
 }
 .list li {
-    margin: 0 10px;
     padding: 22px 10px;
     position: relative;
 }
 .list li a {
-    font-size: 20px;
+    font-size: 24px;
     padding: 22px 0;
     text-decoration: none;
     color: #fff;
@@ -108,33 +107,250 @@ header {
 .list li:hover::after {
     width: 100%;
 }
-.login {
+.login-header {
     width: 150px;
     display: flex;
     align-items: center;
 }
-.login li {
-    padding-left:15px;
+.login-header li {
+    padding-left: 15px;
 }
-.login li a {
-    font-size: 1rem;
+.login-header li a {
+    font-size: 1.2rem;
     text-decoration: none;
     display: inline-block;
     color: #fff;
     transition: 0.3s;
 }
-.login li:first-of-type a:hover {
+.login-header li:first-of-type a:hover {
     color: rgb(255, 47, 47);
     font-size: 24px;
 }
-.login li:last-of-type a:hover {
+.login-header li:last-of-type a:hover {
     color: rgb(242, 255, 59);
 }
-.login li:last-of-type a:focus {
+.login-header li:last-of-type a:focus {
     border: 1px dashed #000;
 }
 
 /*  導覽列  */
+/* 登入 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+.login-move {
+    display: block !important;
+}
+.login {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(28, 28, 28, 0.7);
+    z-index: 10;
+    display: none;
+}
+.login-wrap {
+    width: 450px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    /* transition: 1s linear; */
+}
+/* .login-active {
+    transform: translate(-50%, -50%);
+    transition: 1s linear;
+} */
+.login-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.login-close::before,
+.login-close::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 30px;
+}
+.login-close::before {
+    left: 13px;
+    border-left: 3px solid green;
+    transform: rotate(45deg);
+}
+.login-close::after {
+    right: 14px;
+    border-right: 3px solid green;
+    transform: rotate(-45deg);
+}
+.login-close:hover::before {
+    border-left: 3px solid red;
+}
+.login-close:hover::after {
+    border-right: 3px solid red;
+}
+.login-tab {
+    width: 80%;
+    display: flex;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.login-left,
+.login-right {
+    width: 50%;
+}
+.login-left h2,
+.login-right h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.login-bot-line {
+    position: absolute;
+    top: 45px;
+    left: 29px;
+    width: 124px;
+    border-bottom: 5px solid green;
+    transition: 0.5s ease-in-out;
+}
+.line {
+    transform: translateX(180px);
+    transition: 0.5s ease-in-out;
+}
+.login .log {
+    color: #fff;
+    width: 100%;
+    display: none;
+}
+.login .log form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    /* border: 1px solid beige; */
+}
+.log .username,
+.log .password {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    margin: 10px;
+    border-bottom: 2px solid green;
+}
+.login .log form label {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.login .log form input {
+    font-size: 1.6rem;
+    border: none;
+    background: transparent;
+    padding: 5px 10px;
+    color: #fff;
+}
+.login .log form input:focus {
+    outline: none;
+}
+.login .log form .log-but {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.login .log form .log-but a {
+    color: #aaa;
+    font-size: 20px;
+
+    align-self: center;
+}
+.login .log form .log-but a:hover {
+    color: rgb(84, 149, 170);
+}
+.login .log form .log-but button {
+    width: 50%;
+    border: 2px solid green;
+    padding: 10px 20px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.login .log form .log-but button:focus {
+    outline: none;
+}
+.login .log form .log-but button:hover {
+    border: 2px solid rgb(84, 149, 170);
+}
+.reg {
+    width: 100%;
+    display: none;
+    color: #fff;
+}
+.reg form {
+    width: 100%;
+}
+.reg form .name-reg,
+.reg form .username-reg,
+.reg form .phone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.reg form label {
+    font-size: 20px;
+}
+.reg form input {
+    font-size: 20px;
+    padding: 5px 10px;
+    color: #fff;
+    background: transparent;
+}
+.reg form .password-reg input,
+.reg form .password-reg label {
+    margin-bottom: 10px;
+    background: transparent;
+}
+.reg form input:focus,
+.reg form button:focus {
+    outline: none;
+}
+.reg form .reg-but {
+    text-align: end;
+    margin-top: 15px;
+}
+.reg form .reg-but button {
+    background: transparent;
+    color: #fff;
+    font-size: 24px;
+    padding: 5px 10px;
+    border: 2px solid green;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.reg form .reg-but button:hover {
+    border: 2px solid rgb(84, 149, 170);
+}
 
 /*  footer  */
 
@@ -182,7 +398,7 @@ footer .copyright .footer-icon a {
 .footer-icon a:hover::before {
     opacity: 0.7;
 }
-.footer .copyright .footer-icon a:hover i {
+footer .copyright .footer-icon a:hover i {
     opacity: 1;
     transform: scale(1.4);
 }
@@ -211,7 +427,7 @@ footer .copyright .footer-icon a:nth-child(2):hover i {
 }
 .footer-icon a:nth-child(3):hover::after,
 .footer-icon a:nth-child(3):hover::before {
-    background-color: rgb(218, 1, 1, 0.5);
+    background-color: rgba(236, 9, 9, 0.705);
 }
 footer .copyright .footer-icon a:nth-child(3):hover i {
     color: rgb(218, 1, 1);

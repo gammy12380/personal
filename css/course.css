@@ -8,9 +8,6 @@ body {
     border-bottom: 5px solid rgb(255, 20, 20);
     transition: all 0.5s 0.3s;
 }
-.list li:hover a {
-    border: none;
-}
 .banner {
     width: 100%;
     background: url(../img/spin-studio-best-gym-near-me-springfield.jpg);
@@ -73,7 +70,7 @@ body {
     background: linear-gradient(0deg, #330e2e 15%, #374115, transparent 100%);
 }
 .item:nth-child(4) .item-txt {
-    background: linear-gradient(0deg, #665a18 20%, #965438, transparent 100%);
+    background: linear-gradient(0deg, #312c0e, #965438, transparent 100%);
 }
 .item:nth-child(5) .item-txt {
     background: linear-gradient(0deg, #2e0b0b 20%, #4b1a5f, transparent 100%);
@@ -83,7 +80,8 @@ body {
 }
 .item-txt h2 {
     color: #f13c3c;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
     font-size: 2rem;
 }
 .item-txt p {
@@ -95,21 +93,21 @@ body {
 .item-txt a {
     text-decoration: none;
     position: absolute;
-    top: 25px;
+    top: 35px;
     right: 80px;
 }
 .item-txt button {
     margin-bottom: 30px;
     font-size: 20px;
-    color: red;
-    background-color: #fff;
+    color: #fff;
+    background-color: red;
     border: none;
     transition: all 0.5s;
     cursor: pointer;
     padding: 5px 10px;
 }
 .item-txt button:hover {
-    background-color: red;
+    background-color: rgb(199, 0, 0);
     color: #fff;
 }
 .item-txt button:focus {

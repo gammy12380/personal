@@ -225,7 +225,7 @@ video {
     text-shadow: 4px 4px 5px rgba(0, 0, 0.5);
 }
 .sec2-txt ul li p {
-    font-size: 1rem;
+    font-size: 20px;
 }
 .sec2-txt ul li i {
     font-size: 20px;
@@ -368,31 +368,46 @@ video {
 }
 .sec3-txt {
     color: #ffff;
-}
-.sec3-txt ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+}
+.slider-wrap {
+    width: 400px;
+    overflow: hidden;
     position: relative;
+    margin: 5px 0;
 }
-.sec3-txt ul .sec3-img {
-    width: 350px;
+.slider {
+    width: 1600px;
+    display: flex;
+    position: relative;
+    transition: 0.5s;
 }
-.sec3-txt ul .sec3-img img {
+.slider .sec3-img {
+    width: 500px;
+    height: 300px;
+}
+.slider .sec3-img img {
     width: 100%;
+    height: 100%;
+    vertical-align: middle;
 }
 .sec3-txt .pic-txt {
     line-height: 1.6;
 }
-.sec3-txt ul li h2 {
+.sec3-txt h2 {
     font-size: 2rem;
     margin-top: 60px;
     color: rgb(235, 77, 66);
     text-shadow: 4px 4px 5px rgba(0, 0, 0.5);
 }
-.sec3-txt ul li p {
-    font-size: 1rem;
+.sec3-txt p {
+    font-size: 20px;
     line-height: 1.6;
 }
-.sec3-txt ul li .loc {
+.sec3-txt .loc {
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;
@@ -407,7 +422,10 @@ video {
     overflow: hidden;
     z-index: 1;
 }
-.sec3-txt ul li .loc::before {
+.sec3-txt button:focus {
+    outline: none;
+}
+.sec3-txt .loc::before {
     content: "";
     position: absolute;
     background-color: red;
@@ -419,41 +437,29 @@ video {
     transform: translate(-50%, -50%) rotate(45deg);
     transition: all 0.6s ease;
 }
-.sec3-txt ul li .loc:hover::before {
+.sec3-txt .loc:hover::before {
     height: 380%;
 }
-.sec3-txt ul li button:focus {
-    outline: none;
-}
-.sec3-txt .sec3-left,
-.sec3-txt .sec3-right {
+.sec3-txt #back,
+.sec3-txt #forward {
     position: absolute;
-    top: 50%;
-}
-.sec3-txt .sec3-left {
-    left: -30px;
-}
-.sec3-left button,
-.sec3-right button {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    background-color: rgb(202, 54, 54, 0.5);
-    border: 1px solid rgb(28, 28, 28, 0.5);
     cursor: pointer;
+    border: none;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
 }
-.sec3-left button:focus,
-.sec3-right button:focus {
+.sec3-txt #back {
+    left: 0px;
+}
+.sec3-txt #forward {
+    right: 0;
+}
+.sec3-txt #back:focus,
+.sec3-txt #forward:focus {
     outline: none;
-}
-.sec3-left button {
-    border-radius: 50% 20% 20% 50%;
-}
-.sec3-right button {
-    border-radius: 20% 50% 50% 20%;
-}
-.sec3-txt .sec3-right {
-    right: -30px;
 }
 .sec4 {
     width: 100%;

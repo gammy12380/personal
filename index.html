@@ -136,7 +136,7 @@
     <div id="fullpage">
         <div class="section">
             <div class="sec1">
-                <video src="./david.mp4" autoplay loop muted data-keepplaying></video>
+                <video id="myVideo" src="./david.mp4" autoplay loop muted data-keepplaying playsinline></video>
                 <div class="sec1-wrap">
                     <div class="sec1-txt">
                         <div class="sec1-txt-top">
@@ -282,7 +282,7 @@
         </section>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.js"></script>
     <script>
         var dotList = document.querySelectorAll('#dotList li')
         new fullpage("#fullpage",
@@ -330,6 +330,14 @@
         });
 
 
+    </script>
+
+    <!-- 影片支援問題 -->
+    <script>
+        window.onload=function(){
+            var vid = document.getElementById("myVideo");
+            vid.play();
+        }
     </script>
 
     <script>

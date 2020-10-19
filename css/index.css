@@ -143,6 +143,30 @@ video {
         visibility: visible;
     }
 }
+@media screen and (max-width: 991px) {
+    .sec1-line {
+        width: 540px;
+    }
+    .sec1-txt .sec1-txt-top h2,
+    .sec1-txt .sec1-txt-bot h2 {
+        font-size: 36px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .sec1-line {
+        width: 500px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .sec1-line {
+        width: 275px;
+    }
+    .sec1-txt .sec1-txt-top h2,
+    .sec1-txt .sec1-txt-bot h2 {
+        font-size: 2rem;
+    }
+}
+
 .sec2 {
     width: 100%;
     height: 100vh;
@@ -257,8 +281,8 @@ video {
     overflow: hidden;
 }
 .sec2-txt ul li a button {
-    background-color: rgb(53, 53, 53);
-    border: none;
+    background-color: rgba(124, 50, 50);
+    border: 2px solid rgba(255, 0, 0, 0.5);
     padding: 4px 10px;
     cursor: pointer;
     box-shadow: 2px 20px 10px 5px rgba(0, 0, 0, 0.5);
@@ -266,7 +290,7 @@ video {
     font-size: 20px;
     transition: all 0.5s;
 }
-.sec2-txt ul li a span:nth-child(1) {
+.sec2-txt ul li a:hover span:nth-child(1) {
     position: absolute;
     top: 0;
     left: 0;
@@ -284,7 +308,7 @@ video {
         transform: translatex(100%);
     }
 }
-.sec2-txt ul li a span:nth-child(2) {
+.sec2-txt ul li a:hover span:nth-child(2) {
     position: absolute;
     top: 0;
     right: 0;
@@ -301,7 +325,7 @@ video {
         transform: translateY(100%);
     }
 }
-.sec2-txt ul li a span:nth-child(3) {
+.sec2-txt ul li a:hover span:nth-child(3) {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -319,7 +343,7 @@ video {
         transform: translatex(-100%);
     }
 }
-.sec2-txt ul li a span:nth-child(4) {
+.sec2-txt ul li a:hover span:nth-child(4) {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -345,6 +369,47 @@ video {
 .sec2 img {
     width: 100px;
 }
+@media screen and (max-width: 767px) {
+    .sec2-txt-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .sec2-txt ul li h2 {
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+    .sec2-txt ul li p,
+    .sec2-txt ul li a button {
+        font-size: 16px;
+    }
+    .sec2-txt ul li a {
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .sec2-txt-wrap {
+        margin-top: 50px;
+    }
+    .sec2-txt ul li p,
+    .sec2-txt ul li a button {
+        font-size: 16px;
+    }
+    .sec2-txt ul li h2 {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+    .sec2-txt ul li {
+        padding: 5px;
+    }
+    .sec2-txt ul li i {
+        margin-right: 3px;
+    }
+    .scrollimg .img {
+        width: 250px;
+        height: 250px;
+    }
+}
 .sec3 {
     width: 100%;
     height: 100vh;
@@ -367,17 +432,18 @@ video {
     align-items: center;
 }
 .sec3-txt {
-    height: 90%;
+    height: 80%;
     color: #ffff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
 }
 /* ss */
 .slider-wrap {
     width: 400px;
-    height: 100%;
+    height: 260px;
     overflow: hidden;
     position: relative;
     margin: 5px 0;
@@ -402,7 +468,8 @@ video {
 }
 .sec3-txt h2 {
     font-size: 2rem;
-    margin-top: 60px;
+    margin-top: 20px;
+    margin-bottom: 15px;
     color: rgb(235, 77, 66);
     text-shadow: 4px 4px 5px rgba(0, 0, 0.5);
 }
@@ -415,7 +482,7 @@ video {
     margin-bottom: 10px;
     border: none;
     cursor: pointer;
-    border: 2px solid red;
+    border: 2px solid rgba(255, 0, 0, 0.5);
     background-color: rgba(124, 50, 50);
     padding: 4px 10px;
     font-size: 20px;
@@ -440,6 +507,9 @@ video {
     transform: translate(-50%, -50%) rotate(45deg);
     transition: all 0.6s ease;
 }
+.sec3-txt .loc:hover{
+    border: 2px solid red;
+}
 .sec3-txt .loc:hover::before {
     height: 380%;
 }
@@ -463,6 +533,30 @@ video {
 .sec3-txt #back:focus,
 .sec3-txt #forward:focus {
     outline: none;
+}
+@media screen and (max-width: 767px) {
+    .slider-wrap {
+        width: 300px;
+    }
+    .sec3-txt p,
+    .sec3-txt .loc {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .slider-wrap {
+        width: 260px;
+        min-width: 100%;
+    }
+    .slider .sec3-img {
+        width: 100%;
+    }
+    .slider .sec3-img img {
+        max-width: 100%;
+    }
+    .sec3-txt h2 {
+        font-size: 30px;
+    }
 }
 .sec4 {
     width: 100%;
@@ -541,7 +635,8 @@ video {
 }
 .sec4-wrap button {
     border: none;
-    background-color: red;
+    background-color: rgba(124, 50, 50);
+    border: 2px solid rgba(255, 0, 0, 0.5);
     padding: 5px 10px;
     font-size: 20px;
     color: #fff;
@@ -553,6 +648,65 @@ video {
     outline: none;
 }
 .sec4-wrap button:hover {
-    background-color: #aaa;
+    background-color: red;
     transform: rotatex(360deg);
+}
+@media screen and (max-width: 767px) {
+    .sec4 {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(
+                70deg,
+                rgb(37, 59, 109) 30%,
+                rgba(155, 135, 25, 0.5) 70%,
+                transparent 100%
+            ),
+            url(../img/532bc4ea6bb0ecc12f3f9a132e235693f899139df5e1059396431415e770c6dd.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .sec4 .sec4-wrap .member {
+        width: 100%;
+        justify-content: center;
+    }
+    .sec4-wrap button {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .sec4 .sec4-wrap h2 {
+        font-size: 30px;
+    }
+    .sec4-wrap .member-box::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 250px;
+        height: 270px;
+        /* border: 3px solid #fff; */
+        border-bottom: 3px solid #fff;
+        border-left: 3px solid #fff;
+        border-right: 3px solid #fff;
+        transform: translatey(30px);
+        z-index: -1;
+    }
+    .sec4-wrap .member h2::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: -68px;
+        width: 50px;
+        border-top: 3px solid #fff;
+        box-shadow: 206px 0 0 0 #fff;
+    }
+    .sec4 .sec4-wrap h2 {
+        margin-bottom: 20px;
+    }
+    .sec4-wrap .member-box {
+        margin-bottom: 10px;
+    }
 }

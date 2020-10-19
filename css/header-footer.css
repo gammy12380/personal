@@ -55,16 +55,20 @@ header {
     height: 100%;
     transform: translateY(10px);
 }
+.list-box {
+    display: flex;
+    position: relative;
+}
 .list {
     display: flex;
     align-items: center;
 }
 .list li {
-    padding: 22px 10px;
+    padding: 22px 20px;
     position: relative;
 }
 .list li a {
-    font-size: 24px;
+    font-size: 20px;
     padding: 22px 0;
     text-decoration: none;
     color: #fff;
@@ -116,7 +120,7 @@ header {
     padding-left: 15px;
 }
 .login-header li a {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-decoration: none;
     display: inline-block;
     color: #fff;
@@ -132,7 +136,184 @@ header {
 .login-header li:last-of-type a:focus {
     border: 1px dashed #000;
 }
+#checkbox {
+    display: none;
+}
+ul + label {
+    /* z-index: 99; */
+    display: none;
+}
+.list-box-rwd {
+    display: none;
+}
+@media screen and (max-width: 1199px) {
+    .nav {
+        min-width: 100%;
+    }
+    .logo {
+        width: 90px;
+        margin-left: 30px;
+    }
+    .list li {
+        padding: 20px 10px;
+    }
+    .list li a {
+        font-size: 20px;
+    }
+    .login-header li a {
+        font-size: 16px;
+    }
+    .login-header {
+        width: 130px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .nav {
+        width: 100%;
+        position: relative;
+        justify-content: space-between;
+    }
+    .logo {
+        width: 80px;
+        margin-left: 50px;
+    }
+    .list-box + label {
+        display: block;
+        position: absolute;
+        right: 30px;
+        margin: auto 0;
+        bottom: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .list-box + label::before,
+    .list-box + label span::before,
+    .list-box + label span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        transition: 0.3s;
+    }
+    .list-box + label::before {
+        top: 0;
+        bottom: 0;
+    }
+    .list-box + label span::before {
+        top: 8px;
+    }
+    .list-box + label span::after {
+        bottom: 8px;
+    }
+    .label-active span::before {
+        transform: rotate(45deg);
+        width: 20px !important;
+        top: 11px !important;
+        left: 14px !important;
+    }
+    .label-active span::after {
+        transform: rotate(-45deg);
+        width: 20px !important;
+        bottom: 11px !important;
+        left: 13px !important;
+    }
+    .list-box {
+        display: none;
+    }
 
+    .list-box-rwd {
+        display: block;
+        position: absolute;
+        top: 51px;
+        width: 100%;
+        transform: translate(100%);
+        transition: 1s;
+        box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .list {
+        background-color: rgb(28, 28, 28);
+        display: block;
+        top: 50px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding-top: 50px;
+        transition: 1s;
+    }
+    .list-slide {
+        transform: translate(0%);
+    }
+    .list li {
+        width: 100%;
+        padding: 0;
+    }
+    .list li:last-child a {
+        border: none;
+    }
+    .list li a {
+        display: block;
+        padding: 20px 0;
+        margin: 0 auto;
+        width: 95%;
+        border-bottom: 1px solid #666;
+        text-align: center;
+        position: relative;
+        
+    }
+    .list li:hover::before{
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 80px;
+        height: 2px;
+        z-index: 1;
+        border-bottom:1px solid red ;
+    }
+    .list li::before{
+       width: 0;
+       position: absolute;
+       bottom: -10px;
+       left: 0;
+       right: 0;
+       margin: auto;
+       width: 0;
+       height: 0;
+
+        
+    }
+    
+    .login-header {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        width: 150px;
+    }
+    .login-header li a {
+        font-size: 16px;
+    }
+    .login-header li:first-of-type a:hover{
+        color: red;
+        font-size: 16px;
+    }
+    .nav-circle {
+        display: none;
+    }
+}
+@media screen and (max-width: 767px) {
+}
 /*  導覽列  */
 /* 登入 */
 input[type="number"]::-webkit-outer-spin-button,
@@ -153,7 +334,7 @@ input[type="number"] {
     display: flex;
     justify-content: center;
     background-color: rgb(28, 28, 28, 0.7);
-    z-index: 10;
+    z-index: 99;
     display: none;
 }
 .login-wrap {
@@ -462,4 +643,22 @@ footer .copyright h4::before {
         rgb(110, 109, 109),
         rgba(37, 37, 37, 0.3) 97%
     );
+}
+@media screen and (max-width: 767px) {
+    footer .copyright .footer-icon a {
+        margin: 0 15px;
+    }
+    footer .copyright h4 {
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+    footer .copyright h4::before {
+        bottom: 50px;
+        width: 500px;
+    }
+}
+@media screen and (max-width: 575px) {
+    footer .copyright h4::before {
+        width: 320px;
+    }
 }

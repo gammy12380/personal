@@ -16,24 +16,44 @@
 
 <body>
     <header>
+        <input type="checkbox" id="checkbox">
         <nav class="nav">
             <a href="./index.html">
                 <div class="logo">
                     <img src="./img/redlogo.png" alt="汗流夾背LOGO圖">
                 </div>
             </a>
-            <ul class="list">
-                <li><a href="./product.html">健身周邊</a></li>
-                <li><a href="./course.html">課程介紹</a></li>
-                <li><a href="./signup.html">立刻報名</a></li>
-                <li><a href="./location.html">據點介紹</a></li>
-                <li><a href="./coach.html">教練陣容</a></li>
-                <li><a href="./contact.html">聯絡我們</a></li>
-            </ul>
-            <ul class="login-header">
-                <li><a href="#"><i class="fas fa-shopping-cart"></i></i></a></li>
-                <li><a href="#" id="login">登入/註冊</a></li>
-            </ul>
+            <div class="list-box">
+                <ul class="list">
+                    <li><a href="./product.html">健身周邊</a></li>
+                    <li><a href="./course.html">課程介紹</a></li>
+                    <li><a href="./signup.html">立刻報名</a></li>
+                    <li><a href="./location.html">據點介紹</a></li>
+                    <li><a href="./coach.html">教練陣容</a></li>
+                    <li><a href="./contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="login-header">
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i></i></a></li>
+                    <li><a href="#" class="login-on">登入/註冊</a></li>
+                </ul>
+            </div>
+            <label for="checkbox">
+                <span></span>
+            </label>
+            <div class="list-box-rwd">
+                <ul class="list">
+                    <li><a href="./product.html">健身周邊</a></li>
+                    <li><a href="./course.html">課程介紹</a></li>
+                    <li><a href="./signup.html">立刻報名</a></li>
+                    <li><a href="./location.html">據點介紹</a></li>
+                    <li><a href="./coach.html">教練陣容</a></li>
+                    <li><a href="./contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="login-header">
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i></i></a></li>
+                    <li><a href="#" class="login-on">登入/註冊</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -41,7 +61,7 @@
         <div class="login-wrap">
             <div class="login-close" id="login-close"></div>
             <div class="login-tab" id="login-tab">
-                <div class="login-left" >
+                <div class="login-left">
                     <h2>登入帳號</h2>
                 </div>
                 <div class="login-right">
@@ -87,9 +107,9 @@
                             <label for="num">手機號碼</label>
                             <input type="number" id="num" autocomplete="off" placeholder="請輸入手機">
                         </div>
-                        
-                       
-                        
+
+
+
                         <div class="reg-but">
                             <button type="submit">註冊</button>
                         </div>
@@ -117,13 +137,13 @@
                     <div class="sign-body">
                         <label for="name">姓名</label>
                         <input type="text" name="name" id="name" placeholder="請輸入姓名">
-                      
+
                         <label for="telephone">電話號碼</label>
                         <input type="tel" name="telephone" id="telephone" placeholder="請輸入電話號碼">
-                    
+
                         <label for="email">聯絡信箱</label>
                         <input type="email" name="email" id="email" placeholder="@gamil.com">
-                        
+
                         <label for="loc">選擇場館</label>
                         <select name="loc" id="loc">
                             <option value="0">請選擇場館</option>
@@ -132,7 +152,7 @@
                             <option value="3">台北西門店</option>
                             <option value="4">台北101店</option>
                         </select>
-                
+
                         <label for="course">想報名的課程</label>
                         <select name="course" id="course">
                             <option value="0">請選擇課程</option>
@@ -162,40 +182,58 @@
         </div>
     </footer>
 
+
+    <!-- RWD -->
+    <script>
+        var menuBtn = document.querySelector('#checkbox');
+        var menu = document.querySelector('.nav > .list-box-rwd');
+        var label = document.querySelector('.nav > label');
+        menuBtn.addEventListener('click', function () {
+            menu.classList.toggle('list-slide');
+            label.classList.toggle('label-active');
+
+
+        });
+
+
+    </script>
     <!-- 登入 -->
     <script>
-        var login = document.querySelector('#login');
+        var login = document.querySelectorAll('.login-on');
         var box = document.querySelector('#login-box');
         var x = document.querySelector('#login-close');
         var logW = document.querySelector('.login-wrap');
-        login.addEventListener('click',function(){
-         
-            box.style.display = "flex";
-            // logW.classList.add('login-active');
-            x.addEventListener('click',function(){
-            box.style.display = "none";
-            // logW.classList.remove('login-active');
-        })
-        });
+
+        for (let i = 0; i < login.length; i++) {
+            login[i].addEventListener('click', function () {
+
+                box.style.display = "flex";
+                // logW.classList.add('login-active');
+                x.addEventListener('click', function () {
+                    box.style.display = "none";
+                    // logW.classList.remove('login-active');
+                })
+            });
+        }
         var logs = document.querySelectorAll('#login-tab > div');
         var regs = document.querySelectorAll('.log-box > div');
         var line = document.querySelector('.login-bot-line');
         var logTabindex = 0;
-        for(let i=0 ;i<logs.length;i++){
-            logs[i].addEventListener('click',function(){
-                regs[logTabindex].classList.remove('login-move'); 
-                
-                logTabindex = i ;
-                
-                regs[logTabindex].classList.add('login-move'); 
-                if(i > 0){
+        for (let i = 0; i < logs.length; i++) {
+            logs[i].addEventListener('click', function () {
+                regs[logTabindex].classList.remove('login-move');
+
+                logTabindex = i;
+
+                regs[logTabindex].classList.add('login-move');
+                if (i > 0) {
                     line.classList.add('line');
-                }else{
+                } else {
                     line.classList.remove('line');
                 }
             })
         }
-        
+
     </script>
 </body>
 

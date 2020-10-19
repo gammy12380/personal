@@ -261,7 +261,7 @@ body {
     }
     .item:nth-of-type(3) .item-txt {
         width: 100%;
-        height: 15%;
+
         position: relative;
     }
 
